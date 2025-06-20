@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   ticket_app:
-    container_name: java_app
+    container_name: ticket_app
     image: image-ticket_app:1.0.0
     build: .
     ports:

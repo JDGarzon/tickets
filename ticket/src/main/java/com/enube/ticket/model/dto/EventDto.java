@@ -1,5 +1,6 @@
-package com.enube.ticket.dto;
+package com.enube.ticket.model.dto;
 
+import com.enube.ticket.model.enums.Status;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
@@ -17,4 +18,5 @@ public class EventDto {
     private String ubication;
     private int numberOfTickets;
     private String date;
+    private Status status;
 }

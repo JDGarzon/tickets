@@ -1,12 +1,12 @@
 package com.enube.ticket.service;
 
-import com.enube.ticket.model.Event;
+import com.enube.ticket.model.dto.EventDto;
+import com.enube.ticket.model.entity.Event;
+import com.enube.ticket.model.enums.Status;
 import com.enube.ticket.repository.EventRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EventService {
@@ -17,7 +17,16 @@ public class EventService {
         this.eventRepository = eventRepository;
     }
 
-    public void save(Event event) {
+    public void save(EventDto eventDto) {
+        eventRepository.save(new Event(eventDto.getName(),eventDto.getUbication(),eventDto.getNumberOfTickets(),eventDto.getDate()));
+    }
+    public void save(EventDto eventDto,Long id) throws Exception {
+        Event event = findById(id);
+        event.setName(eventDto.getName());
+        event.setDate(eventDto.getDate());
+        event.setUbication(eventDto.getUbication());
+        event.setNumberOfTickets(eventDto.getNumberOfTickets());
+        event.setStatus(eventDto.getStatus());
         eventRepository.save(event);
     }
 
@@ -26,14 +35,20 @@ public class EventService {
         return eventRepository.findAll();
     }
 
-    public Event findById(Long id) {
-        if (eventRepository.findById(id).isPresent()){
-            return eventRepository.findById(id).get();
-        }else return null;
+    public List<Event> findAllActive() {
+        return eventRepository.findByStatus(Status.ACTIVE);
     }
 
-    public void deleteById(Long id) {
-        eventRepository.deleteById(id);
+    public Event findById(Long id) throws Exception {
+        if (eventRepository.findById(id).isPresent()){
+            return eventRepository.findById(id).get();
+        }else throw new Exception("Event not found");
+    }
+
+    public void deleteById(Long id) throws Exception{
+        Event event=findById(id);
+        event.setStatus(Status.CANCELED);
+        eventRepository.save(event);
     }
 
 }
