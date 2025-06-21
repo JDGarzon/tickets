@@ -14,5 +14,6 @@ public interface EventService {
     List<Event> findAllActive();
     Event findById(Long id) throws Exception;
     void deleteById(Long id) throws Exception;
+    void load();
 
 }

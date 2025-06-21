@@ -41,6 +41,10 @@ public class EventController implements EventApi {
         eventService.deleteById(id);
     }
 
+    public void preLoadEvents() {
+        eventService.load();
+    }
+
 
 
 }

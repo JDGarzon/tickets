@@ -29,6 +29,9 @@ public interface EventApi {
     @DeleteMapping("/{id}")
     void deleteEvent(@PathVariable Long id) throws Exception;
 
+    @PostMapping("/load")
+    void preLoadEvents();
+
 
 
 }

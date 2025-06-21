@@ -6,7 +6,7 @@ services:
     image: image-ticket_app:1.0.0
     build: .
     ports:
-      - 8080:8080
+      - "8080:8080"
     environment:
       - DATABASE_URL=jdbc:postgresql://postgres_db:5432/postgres
       - DATABASE_USERNAME=postgres
@@ -17,7 +17,7 @@ services:
     container_name: java_db
     image: postgres:12
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -15,8 +18,11 @@ import lombok.NoArgsConstructor;
 public class EventDto {
 
     private String name;
-    private String ubication;
+    private String description;
+    private String location;
+    private List<String> categories;
     private int numberOfTickets;
-    private String date;
+    private Date date;
     private Status status;
+    private String photo;
 }

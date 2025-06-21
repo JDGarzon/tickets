@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Festival de Comida Internacional",
+    "description": "Prueba sabores del mundo en un solo lugar. Gastronomía de más de 20 países.",
+    "categories": ["Gastronomía", "Festival", "Cultura"],
+    "numberOfTickets": 800,
+    "photo": "https://example.com/images/food_festival.jpg",
+    "status": "ACTIVE",
+    "date": "2025-08-15T12:00:00",
+    "location": "Plaza Mayor, Medellín"
+  },
+  {
+    "name": "Feria del Libro 2025",
+    "description": "Evento literario con autores invitados, talleres de escritura y actividades para toda la familia.",
+    "categories": ["Cultura", "Literatura", "Familiar"],
+    "numberOfTickets": 500,
+    "photo": "https://example.com/images/feria_libro.jpg",
+    "status": "ACTIVE",
+    "date": "2025-08-05T10:00:00",
+    "location": "Centro de Convenciones Corferias, Bogotá"
+  },
+  {
+    "name": "Festival de Comida Internacional",
+    "description": "Prueba sabores del mundo en un solo lugar. Gastronomía de más de 20 países.",
+    "categories": ["Gastronomía", "Festival", "Cultura"],
+    "numberOfTickets": 800,
+    "photo": "https://example.com/images/food_festival.jpg",
+    "status": "ACTIVE",
+    "date": "2025-08-15T12:00:00",
+    "location": "Plaza Mayor, Medellín"
+  },
+  {
+    "name": "Taller de Fotografía para Principiantes",
+    "description": "Aprende a usar tu cámara y los fundamentos de la composición fotográfica.",
+    "categories": ["Educación", "Fotografía", "Arte"],
+    "numberOfTickets": 30,
+    "photo": "https://example.com/images/fotografia_taller.jpg",
+    "status": "ACTIVE",
+    "date": "2025-07-20T09:00:00",
+    "location": "Biblioteca Pública Piloto, Medellín"
+  },
+  {
+    "name": "Maratón Ciudad Verde",
+    "description": "Corre por la ciudad y apoya una causa ambiental. Distancias de 5k, 10k y 21k.",
+    "categories": ["Deporte", "Salud", "Comunidad"],
+    "numberOfTickets": 1000,
+    "photo": "https://example.com/images/maraton_verde.jpg",
+    "status": "ACTIVE",
+    "date": "2025-09-01T06:30:00",
+    "location": "Parque Simón Bolívar, Bogotá"
+  },
+  {
+    "name": "Obra de Teatro: La Sombra del Tiempo",
+    "description": "Una obra de teatro dramática que explora el paso del tiempo y la memoria.",
+    "categories": ["Teatro", "Drama", "Arte"],
+    "numberOfTickets": 120,
+    "photo": "https://example.com/images/teatro_sombra.jpg",
+    "status": "ACTIVE",
+    "date": "2025-07-28T19:30:00",
+    "location": "Teatro Colón, Bogotá"
+  },
+  {
+    "name": "Expo Tecnología e Innovación 2025",
+    "description": "Descubre los últimos avances en tecnología, IA, robótica y más.",
+    "categories": ["Tecnología", "Innovación", "Exposición"],
+    "numberOfTickets": 600,
+    "photo": "https://example.com/images/expo_tecnologia.jpg",
+    "status": "ACTIVE",
+    "date": "2025-09-10T10:00:00",
+    "location": "Centro de Convenciones Plaza Mayor, Medellín"
+  },
+  {
+    "name": "Noche de Cine al Aire Libre",
+    "description": "Ven con tu manta y disfruta de clásicos del cine bajo las estrellas.",
+    "categories": ["Cine", "Entretenimiento", "Familiar"],
+    "numberOfTickets": 200,
+    "photo": "https://example.com/images/cine_aire_libre.jpg",
+    "status": "ACTIVE",
+    "date": "2025-07-18T20:00:00",
+    "location": "Parque de los Deseos, Medellín"
+  },
+  {
+    "name": "Curso Intensivo de Programación Web",
+    "description": "Aprende a crear sitios web desde cero con HTML, CSS y JavaScript.",
+    "categories": ["Educación", "Tecnología", "Programación"],
+    "numberOfTickets": 50,
+    "photo": "https://example.com/images/curso_programacion.jpg",
+    "status": "ACTIVE",
+    "date": "2025-07-22T08:00:00",
+    "location": "Universidad EAFIT, Medellín"
+  },
+  {
+    "name": "Festival de Jazz en el Parque",
+    "description": "Disfruta de las mejores bandas de jazz en un ambiente natural y relajado.",
+    "categories": ["Música", "Jazz", "Festival"],
+    "numberOfTickets": 400,
+    "photo": "https://example.com/images/festival_jazz.jpg",
+    "status": "ACTIVE",
+    "date": "2025-08-20T17:00:00",
+    "location": "Parque El Country, Bogotá"
+  }
+]

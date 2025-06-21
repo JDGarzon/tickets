@@ -5,6 +5,7 @@ import com.enube.ticket.model.entity.Event;
 import com.enube.ticket.model.enums.Status;
 import com.enube.ticket.repository.EventRepository;
 import com.enube.ticket.service.EventService;
+import com.enube.ticket.utils.DataLoader;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,15 +20,18 @@ public class EventServiceImpl implements EventService {
     }
 
     public void save(EventDto eventDto) {
-        eventRepository.save(new Event(eventDto.getName(),eventDto.getUbication(),eventDto.getNumberOfTickets(),eventDto.getDate()));
+        eventRepository.save(new Event(eventDto.getName(),eventDto.getDescription(),eventDto.getNumberOfTickets(),eventDto.getDate(),eventDto.getCategories(),eventDto.getPhoto(),Status.ACTIVE,eventDto.getLocation()));
     }
+
     public void save(EventDto eventDto,Long id) throws Exception {
         Event event = findById(id);
         event.setName(eventDto.getName());
         event.setDate(eventDto.getDate());
-        event.setUbication(eventDto.getUbication());
+        event.setDescription(eventDto.getDescription());
         event.setNumberOfTickets(eventDto.getNumberOfTickets());
         event.setStatus(eventDto.getStatus());
+        event.setCategories(eventDto.getCategories());
+        event.setPhoto(eventDto.getPhoto());
         eventRepository.save(event);
     }
 
@@ -50,6 +54,16 @@ public class EventServiceImpl implements EventService {
         Event event=findById(id);
         event.setStatus(Status.CANCELED);
         eventRepository.save(event);
+    }
+
+
+    public void load() {
+        DataLoader dataLoader= new DataLoader(eventRepository);
+        try {
+            dataLoader.run();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
