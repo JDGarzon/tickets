@@ -1,5 +1,7 @@
 package com.enube.ticket.service.impl;
 
+import com.enube.ticket.exceptions.NotEnoughException;
+import com.enube.ticket.exceptions.NotFoundException;
 import com.enube.ticket.model.dto.TicketDto;
 import com.enube.ticket.model.entity.Event;
 import com.enube.ticket.model.entity.Ticket;
@@ -10,6 +12,7 @@ import com.enube.ticket.service.TicketService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -30,7 +33,7 @@ public class TicketServiceImpl implements TicketService {
         return (event.getNumberOfTickets()-totalReservations)>toReserve.getReservations();
     }
 
-    public void save(TicketDto ticketDto) throws Exception {
+    public void save(TicketDto ticketDto) throws NotEnoughException,NotFoundException {
         Event event = eventService.findById(ticketDto.getEventId());
         List<Ticket> tickets = ticketRepository.findByEvent(event);
         if (isReservable(event, tickets, ticketDto)) {
@@ -38,19 +41,18 @@ public class TicketServiceImpl implements TicketService {
                     ticketDto.getEmail(),
                     ticketDto.getReservations(),
                     event));
-        }else throw new Exception("Not enough tickets available for reservation.");
+        }else throw new NotEnoughException("Not enough tickets available for reservation.");
     }
 
-    public void save(TicketDto ticketDto, Long id) throws Exception {
-        Ticket ticket = findById(id);
+    public void update(TicketDto ticketDto, Long id) throws NotEnoughException,NotFoundException {
+        Ticket ticket = this.findById(id);
         ticket.setReservations(ticketDto.getReservations());
         ticket.setStatus(ticketDto.getStatus());
-
         boolean isLess = ticket.getReservations() > ticketDto.getReservations();
         if (isLess) {
             List<Ticket> tickets = ticketRepository.findByEvent(ticket.getEvent());
             if (!isReservable(ticket.getEvent(), tickets, ticketDto)) {
-                throw new Exception("Not enough tickets available for reservation.");
+                throw new NotEnoughException("Not enough tickets available for reservation.");
             }
         }
 
@@ -69,13 +71,14 @@ public class TicketServiceImpl implements TicketService {
         return ticketRepository.findByEmail(email);
     }
 
-    public Ticket findById(Long id) throws Exception {
-        if (ticketRepository.findById(id).isPresent()){
-            return ticketRepository.findById(id).get();
-        }else throw new Exception("Ticket not found");
+    public Ticket findById(Long id) throws NotFoundException {
+        Optional<Ticket> ticket=ticketRepository.findById(id);
+        if (ticket.isPresent()){
+            return ticket.get();
+        }else throw new NotFoundException("Ticket not found");
     }
 
-    public void deleteById(Long id) throws Exception{
+    public void deleteById(Long id) throws NotFoundException{
         Ticket ticket=findById(id);
         ticket.setStatus(Status.CANCELED);
         ticketRepository.save(ticket);

@@ -5,12 +5,14 @@ com\enube\ticket\utils\CategoryConverter.class
 com\enube\ticket\service\EventService.class
 com\enube\ticket\api\EventApi.class
 com\enube\ticket\utils\DataLoader$1.class
+com\enube\ticket\exceptions\NotFoundException.class
 com\enube\ticket\service\impl\EventServiceImpl.class
 com\enube\ticket\utils\DataLoader.class
 com\enube\ticket\TicketApplication.class
 com\enube\ticket\controller\EventController.class
 com\enube\ticket\model\entity\Event.class
 com\enube\ticket\controller\TicketController.class
+com\enube\ticket\exceptions\NotEnoughException.class
 com\enube\ticket\repository\TicketRepository.class
 com\enube\ticket\model\entity\Ticket.class
 com\enube\ticket\model\dto\TicketDto.class

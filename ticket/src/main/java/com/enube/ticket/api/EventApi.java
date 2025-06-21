@@ -2,7 +2,7 @@ package com.enube.ticket.api;
 
 import com.enube.ticket.model.dto.EventDto;
 import com.enube.ticket.model.entity.Event;
-import com.enube.ticket.service.EventService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,25 +12,25 @@ import java.util.List;
 public interface EventApi {
 
     @PostMapping()
-    void save(@RequestBody EventDto eventDto);
+    ResponseEntity<Void> save(@RequestBody EventDto eventDto);
 
     @PutMapping("/{id}")
-    void updateEvent(@RequestBody EventDto eventDto,@PathVariable Long id ) throws Exception;
+    ResponseEntity<Void> updateEvent(@RequestBody EventDto eventDto,@PathVariable Long id );
 
     @GetMapping("/all")
-    List<Event> getAll();
+    ResponseEntity<List<Event>> getAll();
 
     @GetMapping
-    List<Event> getAllActive();
+    ResponseEntity<List<Event>> getAllActive();
 
     @GetMapping("/{id}")
-    Event getEvent(@PathVariable Long id) throws Exception;
+    ResponseEntity<Event> getEvent(@PathVariable Long id);
 
     @DeleteMapping("/{id}")
-    void deleteEvent(@PathVariable Long id) throws Exception;
+    ResponseEntity<Void> deleteEvent(@PathVariable Long id);
 
     @PostMapping("/load")
-    void preLoadEvents();
+    ResponseEntity<Void> preLoadEvents();
 
 
 

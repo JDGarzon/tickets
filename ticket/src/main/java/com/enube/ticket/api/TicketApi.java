@@ -2,6 +2,7 @@ package com.enube.ticket.api;
 
 import com.enube.ticket.model.dto.TicketDto;
 import com.enube.ticket.model.entity.Ticket;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,25 +12,25 @@ import java.util.List;
 public interface TicketApi {
 
     @PostMapping()
-    void save(@RequestBody TicketDto eventDto) throws Exception ;
+    ResponseEntity<Void> save(@RequestBody TicketDto eventDto);
 
     @PutMapping("/{id}")
-    void updateEvent(@RequestBody TicketDto ticketDto,@PathVariable Long id ) throws Exception;
+    ResponseEntity<Void> updateTicket(@RequestBody TicketDto ticketDto,@PathVariable Long id );
 
     @GetMapping("/all")
-    List<Ticket> getAll();
+    ResponseEntity<List<Ticket>> getAll();
 
     @GetMapping("/byEmail")
-    List<Ticket> getByEmail(@RequestParam String email);
+    ResponseEntity<List<Ticket>> getByEmail(@RequestParam String email);
 
     @GetMapping
-    List<Ticket> getAllActive();
+    ResponseEntity<List<Ticket>> getAllActive();
 
     @GetMapping("/{id}")
-    Ticket getTicket(@PathVariable Long id) throws Exception;
+    ResponseEntity<Ticket> getTicket(@PathVariable Long id) throws Exception;
 
     @DeleteMapping("/{id}")
-    void deleteEvent(@PathVariable Long id) throws Exception;
+    ResponseEntity<Void> deleteEvent(@PathVariable Long id) throws Exception;
 
 
 

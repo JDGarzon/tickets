@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "1801d963-4cd6-4c7c-b2c0-da4aabce308c",
+		"name": "ticket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28099086",
+		"_collection_link": "https://grey-flare-445879.postman.co/workspace/My-Workspace~a30538c9-b293-4652-8777-a8b955d18c39/collection/28099086-1801d963-4cd6-4c7c-b2c0-da4aabce308c?action=share&source=collection_link&creator=28099086"
+	},
+	"item": [
+		{
+			"name": "GET_ALL",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/event/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ONE",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/event/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_All_Active",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/event",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_T_ALL",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/ticket/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticket",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_T_ONE",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/ticket/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_T_ACTIVE",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/ticket",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_T_EMAIL",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/ticket/byEmail?email=juan@example.com",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticket",
+						"byEmail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "juan@example.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Concierto de Rock Alternativo\",\r\n    \"description\": \"Una noche llena de energía con bandas locales e internacionales de rock alternativo.\",\r\n    \"categories\": [\"Música\", \"Concierto\", \"Rock\"],\r\n    \"numberOfTickets\": 300,\r\n    \"photo\": \"https://example.com/images/rock_concert.jpg\",\r\n    \"location\": \"Biblioteca Pública Piloto, Medellín\",\r\n    \"date\": \"2025-07-12T20:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/event",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE_T",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"juan123\",\r\n  \"email\": \"juan@example.com\",\r\n  \"reservations\": 10,\r\n  \"eventId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/ticket",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Concierto de Rock Alternativo\",\r\n    \"description\": \"Una noche llena de energía con bandas locales e internacionales de rock alternativo.\",\r\n    \"categories\": [\"Música\", \"Concierto\", \"Rock\"],\r\n    \"numberOfTickets\": 300,\r\n    \"photo\": \"https://example.com/images/rock_concert.jpg\",\r\n    \"date\": \"2025-07-12T20:00:00\",\r\n    \"status\":\"ACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/event/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE_T",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"juan123\",\r\n  \"email\": \"juan@example.com\",\r\n  \"reservations\": 10,\r\n  \"status\":\"ACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/ticket/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/event/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_T",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/ticket/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "load",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/event/load",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"load"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://tickets-p3k7.onrender.com",
+			"type": "string"
+		}
+	]
+}

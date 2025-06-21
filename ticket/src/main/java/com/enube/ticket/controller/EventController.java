@@ -1,10 +1,14 @@
 package com.enube.ticket.controller;
 
 import com.enube.ticket.api.EventApi;
+import com.enube.ticket.exceptions.NotFoundException;
 import com.enube.ticket.model.dto.EventDto;
 import com.enube.ticket.model.entity.Event;
 import com.enube.ticket.service.EventService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -17,34 +21,48 @@ public class EventController implements EventApi {
         this.eventService = eventService;
     }
 
-    public void save(EventDto eventDto) {
+    public ResponseEntity<Void> save(EventDto eventDto) {
         eventService.save(eventDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    public void updateEvent(EventDto eventDto, Long id ) throws Exception {
-        eventService.save(eventDto,id);
+    public ResponseEntity<Void> updateEvent(EventDto eventDto, Long id) {
+        try {
+            eventService.save(eventDto, id);
+            return ResponseEntity.noContent().build(); // 204 No Content
+        } catch (NotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
     }
 
-    public List<Event> getAll() {
-        return eventService.findAll();
+    public ResponseEntity<List<Event>> getAll() {
+        return ResponseEntity.ok(eventService.findAll());
     }
 
-    public List<Event> getAllActive() {
-        return eventService.findAllActive();
+    public ResponseEntity<List<Event>> getAllActive() {
+        return ResponseEntity.ok(eventService.findAllActive());
     }
 
-    public Event getEvent(Long id) throws Exception {
-         return eventService.findById(id);
+    public ResponseEntity<Event> getEvent(Long id) {
+        try {
+            Event event = eventService.findById(id);
+            return ResponseEntity.ok(event);
+        } catch (NotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
     }
 
-    public void deleteEvent(Long id) throws Exception {
-        eventService.deleteById(id);
+    public ResponseEntity<Void> deleteEvent(Long id) {
+        try {
+            eventService.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } catch (NotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
     }
 
-    public void preLoadEvents() {
+    public ResponseEntity<Void> preLoadEvents() {
         eventService.load();
+        return ResponseEntity.ok().build();
     }
-
-
-
 }

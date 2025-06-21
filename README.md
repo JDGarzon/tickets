@@ -69,3 +69,11 @@ docker compose build
 ```bash
 docker compose up -d
 ```
+
+## Despliegue
+
+El sistema está desplegado en Render y puede accederse con el siguiente URL:: <https://tickets-p3k7.onrender.com>
+
+## Pruebas de endpoints
+
+Se incluye una colección de Postman (`ticket.postman_collection.json`) con pruebas para los distintos endpoints de la API. Puedes importarla en Postman para realizar pruebas fácilmente.

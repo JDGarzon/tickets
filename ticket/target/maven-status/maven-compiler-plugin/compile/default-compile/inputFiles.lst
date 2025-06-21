@@ -2,6 +2,8 @@ C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\api
 C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\api\TicketApi.java
 C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\controller\EventController.java
 C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\controller\TicketController.java
+C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\exceptions\NotEnoughException.java
+C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\exceptions\NotFoundException.java
 C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\model\dto\EventDto.java
 C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\model\dto\TicketDto.java
 C:\Users\JUAN\Documents\GitHub\tickets\ticket\src\main\java\com\enube\ticket\model\entity\Event.java

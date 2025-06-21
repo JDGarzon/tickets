@@ -1,5 +1,6 @@
 package com.enube.ticket.service.impl;
 
+import com.enube.ticket.exceptions.NotFoundException;
 import com.enube.ticket.model.dto.EventDto;
 import com.enube.ticket.model.entity.Event;
 import com.enube.ticket.model.enums.Status;
@@ -20,10 +21,12 @@ public class EventServiceImpl implements EventService {
     }
 
     public void save(EventDto eventDto) {
-        eventRepository.save(new Event(eventDto.getName(),eventDto.getDescription(),eventDto.getNumberOfTickets(),eventDto.getDate(),eventDto.getCategories(),eventDto.getPhoto(),Status.ACTIVE,eventDto.getLocation()));
+        eventRepository.save(new Event(eventDto.getName(),eventDto.getDescription(),
+                eventDto.getNumberOfTickets(),eventDto.getDate(),eventDto.getCategories(),
+                eventDto.getPhoto(),Status.ACTIVE,eventDto.getLocation()));
     }
 
-    public void save(EventDto eventDto,Long id) throws Exception {
+    public void save(EventDto eventDto,Long id) throws NotFoundException {
         Event event = findById(id);
         event.setName(eventDto.getName());
         event.setDate(eventDto.getDate());
@@ -44,13 +47,13 @@ public class EventServiceImpl implements EventService {
         return eventRepository.findByStatus(Status.ACTIVE);
     }
 
-    public Event findById(Long id) throws Exception {
+    public Event findById(Long id) throws NotFoundException {
         if (eventRepository.findById(id).isPresent()){
             return eventRepository.findById(id).get();
-        }else throw new Exception("Event not found");
+        }else throw new NotFoundException("Event not found");
     }
 
-    public void deleteById(Long id) throws Exception{
+    public void deleteById(Long id) throws NotFoundException{
         Event event=findById(id);
         event.setStatus(Status.CANCELED);
         eventRepository.save(event);
